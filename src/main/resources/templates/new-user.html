@@ -1,0 +1,118 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <title>Add New User</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Add New User</h1>-->
+
+<!--<form th:action="@{/admin}" th:object="${user}" method="post" >-->
+<!--    <label for="username">UserName:</label>-->
+<!--    <input type="text" id="username" name="username" th:field="*{username}" required/>-->
+
+<!--    <label for="password">Password:</label>-->
+<!--    <input type="password" id="password" name="password" th:field="*{password}" required/>-->
+
+<!--    <label for="email">Email:</label>-->
+<!--    <input type="email" id="email" name="email" th:field="*{email}" required/>-->
+
+<!--    <button type="submit">Create User</button>-->
+<!--</form>-->
+
+<!--<a href="/admin">Cancel</a>-->
+
+<!--<button class="buttonLogout" onclick="window.location.href ='logout';">Logout</button>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add New User</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            width: 300px;
+            margin: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        input {
+            width: 90%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button, a {
+            display: inline-block;
+            padding: 10px 15px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            cursor: pointer;
+        }
+        button {
+            background-color: #28a745;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        a {
+            background-color: #dc3545;
+        }
+        a:hover {
+            background-color: #c82333;
+        }
+        .buttonLogout {
+            background-color: #ff9800;
+        }
+        .buttonLogout:hover {
+            background-color: #e68900;
+        }
+    </style>
+</head>
+<body>
+<h1>Add New User</h1>
+
+<form th:action="@{/admin}" th:object="${user}" method="post">
+    <label for="username">UserName:</label>
+    <input type="text" id="username" name="username" th:field="*{username}" required/>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" th:field="*{password}" required/>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" th:field="*{email}" required/>
+
+    <button type="submit">Create User</button>
+</form>
+
+<a href="/admin">Cancel</a>
+<button class="buttonLogout" onclick="window.location.href ='logout';">Logout</button>
+</body>
+</html>
+
