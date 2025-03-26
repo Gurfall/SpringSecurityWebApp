@@ -42,12 +42,7 @@ public class UserService implements UserDetailsService {
     public void clearUsers() {
         userRepository.deleteAll();
     }
-    public void updateUser(User user) {
-        Set<Role> roles = new HashSet<>();
-        roles.add(roleRepository.findRoleByName(ERole.ROLE_USER));
-        if(user.getRoles() != roles) {
-            roles.add(roleRepository.findRoleByName(ERole.ROLE_ADMIN));
-        }
+    public void updateUser(User user,Collection<Role> roles) {
         user.setRoles(roles);
         userRepository.save(user);
 

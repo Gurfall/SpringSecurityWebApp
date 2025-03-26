@@ -81,6 +81,7 @@ public class AdminController {
 
     private final UserService userService;
     private static String password;
+    private User currentUser;
 
     public AdminController(UserService userService) {
         this.userService = userService;
@@ -117,9 +118,9 @@ public class AdminController {
 
     @GetMapping("/{id}/edit")
     public String editUser(@PathVariable Integer id, Model model) {
-        User user = userService.findUserById(id);
-        password = user.getPassword();
-        model.addAttribute("user", user);
+        currentUser = userService.findUserById(id);
+        password = currentUser .getPassword();
+        model.addAttribute("user", currentUser);
         return "editUser";
     }
 
@@ -131,7 +132,7 @@ public class AdminController {
             user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
         }
         user.setId(id);
-        userService.updateUser(user);
+        userService.updateUser(user,currentUser.getRoles());
         return "redirect:/admin";
     }
 

@@ -8,7 +8,7 @@ public class PasswordEncryption {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
         // Указываем пароль, который нужно зашифровать
-        String rawPassword = "$2a$10$Gc3Hey/88ArWfv4X8brLue6Q0kJg4N/hppdrdVgND/CwxRvtrpmM6";
+        String rawPassword = "admin";
 
         // Шифруем пароль
         String encodedPassword = passwordEncoder.encode(rawPassword);
